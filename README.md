@@ -7,6 +7,14 @@ Your goal is to make a subclass of the included AI class and implement the move(
 other AI's that people have made. The AI class also has a name attribute which can be customized to
 further distinguish your AI from others when the tests are running.
 
+Coordinate System:
+
+0,0 | 1,0 | 2,0
+---------------
+0,1 | 1,1 | 2,1
+---------------
+0,2 | 1,2 | 2,2
+
 How to run a match:
 1. Make sure that all the AI files are in the same directory as the other files and compile them together
 2. You will be prompted for the name of the AI, type in your file name without the .java extention
