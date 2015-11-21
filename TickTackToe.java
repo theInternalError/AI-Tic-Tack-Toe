@@ -20,11 +20,13 @@ public class TickTackToe {
 		}
 		catch(Exception e){
 			System.out.println("Could not load AI one.");
+			scan.close();
 			return;
 		}
 		one.setSide('x');
 		System.out.println("Name of AI 2: ");
 		String nameTwo = scan.nextLine();
+		scan.close();
 		nameTwo = nameTwo.trim();
 		try{
 			two = (AI) (Class.forName(nameTwo).newInstance());
@@ -59,7 +61,8 @@ public class TickTackToe {
 			}
 			board.printBoard();
 			System.out.println();
-			won = board.winCheck() != '-';
+			char check = board.winCheck();
+			won = check != '-' || check == 't';
 		}
 		char winner = board.winCheck();
 		if(one.getSide() == winner){
@@ -67,6 +70,9 @@ public class TickTackToe {
 		}
 		else if(two.getSide() == winner){
 			System.out.println("AI 2 \""+two.getName()+"\" Wins!");
+		}
+		else if(winner == 't'){
+			System.out.println("Tie Game!");
 		}
 		else{
 			System.out.println("Huh, something went wrong....");
