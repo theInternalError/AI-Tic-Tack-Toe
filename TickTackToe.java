@@ -47,16 +47,23 @@ public class TickTackToe {
 		//game cycle
 		boolean won = false;
 		while(!won){
+			boolean goodPlace = false;
 			if(turn){
 				System.out.println("AI 1's Turn...");
-				Point move = one.move(board.getBoardCopy());
-				board.place(one.getSide(),move);
+				while(!goodPlace){
+					Point move = one.move(board.getBoardCopy());
+					goodPlace = board.place(one.getSide(),move);
+					if(!goodPlace) System.out.println("Bad Move... Requesting Another...");
+				}
 				turn = !turn;
 			}
 			else{
 				System.out.println("AI 2's Turn...");
-				Point move = two.move(board.getBoardCopy());
-				board.place(two.getSide(),move);
+				while(!goodPlace){
+					Point move = two.move(board.getBoardCopy());
+					goodPlace = board.place(two.getSide(),move);
+					if(!goodPlace) System.out.println("Bad Move... Requesting Another...");
+				}
 				turn = !turn;
 			}
 			board.printBoard();
