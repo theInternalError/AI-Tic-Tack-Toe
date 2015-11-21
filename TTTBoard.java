@@ -76,8 +76,18 @@ public class TTTBoard {
 		if(board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[2][0] != ' '){
 			return board[2][0]; //true
 		}
+		
+		boolean emptySpace = false;
+		for(int i = 0; i < 3 && !emptySpace; i++){
+			for(int j = 0; j < 3 && !emptySpace; j++){
+				if(board[i][j] == ' ') emptySpace = true;
+			}
+		}
 		//nothing worked
-		return '-'; //false
+		if(emptySpace)
+			return '-'; //false
+		else
+			return 't';
 	}
 	/*
 	 * Print out the board to the screen
