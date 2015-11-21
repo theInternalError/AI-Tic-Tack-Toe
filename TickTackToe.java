@@ -53,7 +53,11 @@ public class TickTackToe {
 				while(!goodPlace){
 					Point move = one.move(board.getBoardCopy());
 					goodPlace = board.place(one.getSide(),move);
-					if(!goodPlace) System.out.println("Bad Move... Requesting Another...");
+					if(!goodPlace){
+						System.out.println("Attemped to move to: "+move.x+","+move.y);
+						System.out.println("Bad Move... Requesting Another...");
+					}
+					try{Thread.sleep(1000);}catch(Exception e){}
 				}
 				turn = !turn;
 			}
@@ -62,7 +66,11 @@ public class TickTackToe {
 				while(!goodPlace){
 					Point move = two.move(board.getBoardCopy());
 					goodPlace = board.place(two.getSide(),move);
-					if(!goodPlace) System.out.println("Bad Move... Requesting Another...");
+					if(!goodPlace){
+						System.out.println("Attemped to move to: "+move.x+","+move.y);
+						System.out.println("Bad Move... Requesting Another...");
+					}
+					try{Thread.sleep(1000);}catch(Exception e){}
 				}
 				turn = !turn;
 			}
